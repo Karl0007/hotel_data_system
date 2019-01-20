@@ -1,10 +1,10 @@
 #pragma once
 #include<bits/stdc++.h>
-#include"Data.h"
+#include"HEAD.h"
 using namespace std;
 
 
-
+	
 class Room
 {
 public:
@@ -22,6 +22,11 @@ public:
 	const int & get_num() const;
 	const Hotel* get_hotel() const;
 	friend bool operator == (const ptr_room & a, const ptr_room & b);
+	const string & get_hotel_name() const;
+	const string & get_hotel_position() const;
+	const string & get_hotel_city() const;
+	const int & get_hotel_num() const;
+	string get_data() const;
 
 private:
 	void modify_price(int x);

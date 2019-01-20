@@ -115,12 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BookInfo.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Hotel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Room.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BookInfo.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="HEAD.h" />
     <ClInclude Include="Hotel.h" />

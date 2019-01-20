@@ -26,7 +26,7 @@ Room::Room(const string & s, int &i)
 		++i;
 	}
 	++i;
-	while (s[i] != '|') {
+	while (i<s.length() && s[i] != '|') {
 		this->type += s[i];
 		++i;
 	}
@@ -49,7 +49,7 @@ Room::Room(const string & s)
 		++i;
 	}
 	++i;
-	while (s[i] != '|') {
+	while (i < s.length() && s[i] != '|') {
 		this->type += s[i];
 		++i;
 	}
@@ -82,6 +82,31 @@ const Hotel * Room::get_hotel() const
 	return this->hotel;
 }
 
+const string & Room::get_hotel_name() const
+{
+	return this->hotel->hotel;
+}
+
+const string & Room::get_hotel_position() const
+{
+	return this->hotel->position;
+}
+
+const string & Room::get_hotel_city() const
+{
+	return this->hotel->city;
+}
+
+const int & Room::get_hotel_num() const
+{
+	return this->hotel->num;
+}
+
+string Room::get_data() const
+{
+	return get_hotel_name() + "\t" + get_hotel_city() + "\t" + get_hotel_position() + "\t" + to_string(get_num()) + "\t" + get_type();
+}
+
 void Room::modify_price(int x) 
 {
 	this->price = x;
@@ -109,5 +134,5 @@ bool operator < (const ptr_room & a, const ptr_room & b) {
 
 bool operator==(const ptr_room & a, const ptr_room & b)
 {
-	return a->get_num() == b->get_num() && a->hotel==b->hotel;
+	return !(a < b) && !(a > b);
 }

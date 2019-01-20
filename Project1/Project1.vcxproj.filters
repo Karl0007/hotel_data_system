@@ -27,6 +27,9 @@
     <ClCompile Include="Data.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BookInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Room.h">
@@ -39,6 +42,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="HEAD.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BookInfo.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

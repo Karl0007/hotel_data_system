@@ -34,9 +34,9 @@ Hotel::Hotel(const string & s,Data * d)
 
 }
 
-void Hotel::Warning_no_such_room()
+void Hotel::Warning_no_such_room(int n)
 {
-	cout << "No such room!" << endl;
+	cout<< n << "号房间不存在！" << endl;
 }
 
 bool Hotel::Warning_the_same_number(int n)
@@ -76,6 +76,11 @@ const string & Hotel::get_position() const
 	return this->position;
 }
 
+const map<int, ptr_room> & Hotel::get_room() const
+{
+	return room;
+}
+
 bool Hotel::insert_room(const ptr_room & tmp)
 {
 	if ( this->room.count(tmp->get_num())) {
@@ -96,6 +101,13 @@ bool Hotel::insert_room(const ptr_room & tmp)
 	return true;
 }
 
+bool Hotel::insert_room(const string & s)
+{
+	ptr_room tmp(new Room(s));
+	tmp->set_hotel(this);
+	return insert_room(tmp);	
+}
+
 bool Hotel::delete_room(const int & n)
 {
 	if (this->room.count(n)) {
@@ -104,7 +116,7 @@ bool Hotel::delete_room(const int & n)
 		return true;
 	}
 	else {
-		Warning_no_such_room();
+		Warning_no_such_room(n);
 		return false;
 	}
 }
